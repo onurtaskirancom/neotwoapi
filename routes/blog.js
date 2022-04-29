@@ -17,13 +17,16 @@ const { requireSignin, adminMiddleware, authMiddleware, canUpdateDeleteBlog } = 
 
 router.post("/blog", requireSignin, adminMiddleware, create);
 router.get("/blogs", list);
+// router.get("/", list); //added
 router.post("/blogs-categories-tags", listAllBlogsCategoriesTags);
 router.get("/blog/:slug", read);
+// router.get("/:slug", read); //added
 router.delete("/blog/:slug", requireSignin, adminMiddleware, remove);
 router.put("/blog/:slug", requireSignin, adminMiddleware, update);
 router.get("/blog/photo/:slug", photo);
 router.post("/blogs/related", listRelated);
 router.get('/blogs/search', listSearch);
+// router.get('/search', listSearch); // added
 
 // auth user blog crud
 router.post("/user/blog", requireSignin, authMiddleware, create);
